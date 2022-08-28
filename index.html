@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- APlayer CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css"/>
+
+    <title>Online music streaming website</title>
+    <style>
+    	body{
+    		background-color: #f7f7f7;
+    		font-family: Open sans;
+    	}
+		body {
+  background-image: url('https://img.freepik.com/premium-photo/3d-rendering-play-button-icon-earphone-headset-background-concept-listening-music-streaming-app-online-3d-render-illustration-cartoon-style_463092-711.jpg?w=2000');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+    	img{
+    		width: 100%;
+    		min-height: 250px;
+    	}
+    	.main{
+    		padding: 40px 0;
+    	}
+    	.col-md-3{
+    		margin-bottom: 40px;
+    	}
+    	.album-poster{
+    		position: relative;
+    		display: block;
+    		border-radius: 7px;
+    		overflow: hidden;
+    		box-shadow: 0 15px 35px #3d2173a1;
+    		transition: all ease 0.4s;
+    	}
+    	.album-poster:hover{
+    		box-shadow: none;
+    		transform: scale(0.98) translateY(5px);
+    	}
+    	h3{
+    		font-size: 34px;
+    		margin-bottom: 34px;
+    		border-bottom: 4px solid #e6e6e6;
+    		padding-bottom: 15px;
+    	}
+    	p{
+    		font-size: 15px;
+    	}
+    	h4{
+    		font-size: 16px;
+    		text-transform: uppercase;
+    		margin-top: 15px;
+    		font-weight: 700;
+    	}
+		
+
+		/*default is hide music player*/
+		#aplayer{
+			position: fixed;
+			bottom: -100%;
+			left: 0;
+			width: 100%;
+			margin: 0;
+			box-shadow: 0 -2px 2px #dadada;
+			background-color: #fff;
+			transition: all ease 0.5s;
+		}
+		#aplayer.showPlayer{
+			bottom: 0;
+		}
+
+		
+		/*MUSIC PLAYER CUSTOMIZING STYLE*/
+		span{
+			color: #000 !important;
+			font-size: 16px;
+		}
+		.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-loaded{
+			background: #e0e0e0;
+    		height: 4px;
+		}
+		.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played{
+			height: 4px;
+			background-color: #2196F3 !important;
+		}
+		.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played .aplayer-thumb{
+			background-color: #2196F3 !important;
+		}
+
+		.aplayer .aplayer-icon{
+			width: 20px;
+			height: 20px;
+		}
+		.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon path {
+		    fill: #000;
+		}
+		.aplayer .aplayer-info .aplayer-music{
+			margin-bottom: 5px;
+		}
+
+
+    </style>
+ 	</head>
+	<body>
+
+<div class="main">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h3>Songs</h3>
+			</div>
+			<div class="col-md-3">
+				<a href="javascript:void();" class="album-poster" data-switch="0">
+					<img src="https://is3-ssl.mzstatic.com/image/thumb/Music123/v4/af/28/8a/af288acd-b7e6-2805-ff13-e60d8cc3a938/194491658588.jpg/600x600bf-60.jpg" alt="">
+				</a>
+				<h4>Chabidar Chabi</h4>
+				<p>Chabidar Chabi -2019</p>
+			</div>
+			<div class="col-md-3">
+				<a href="#" class="album-poster" data-switch="1">
+					<img src="https://i.scdn.co/image/ab67616d0000b2732f8c4a98cbd25754dd9d9202" alt="">
+				</a>
+				<h4>Ami Je Tomar</h4>
+				<p>Ami Je Tomar - 2022</p>
+			</div>
+			<div class="col-md-3">
+				<a href="#" class="album-poster" data-switch="2">
+					<img src="https://pianobajao.com/wp-content/uploads/2021/11/Chaka-Chak-Piano-Note-Atrangi-Re-1024x576.jpg" alt="">
+				</a>
+				<h4>Chaka Chak Atrangi Re</h4>
+				<p>Chaka Chak Atrangi Re - 2021</p>
+			</div>
+
+			<div class="col-md-3">
+				<a href="#" class="album-poster" data-switch="3">
+					<img src="https://i.ytimg.com/vi/RPFkaHG2ONA/maxresdefault.jpg" alt="">
+				</a>
+				<h4>Meri Jaan</h4>
+				<p>Meri Jaan Gangubai Kathiawadi - 2020</p>
+			</div>
+
+			<div class="col-md-3">
+				<a href="#" class="album-poster" data-switch="4">
+					<img src="https://djbaap.net/wp-content/media/covers/1422.jpg" alt="">
+				</a>
+				<h4>Dil Ko Karaar Aaya Reprise </h4>
+				<p>Dil Ko Karaar Aaya Reprise- 2018</p>
+			</div>
+
+
+
+			<div class="col-md-3">
+				<a href="#" class="album-poster" data-switch="5">
+					<img src="https://images.hungama.com/c/1/334/a5d/49511569/49511569_300x300.jpg" alt="">
+				</a>
+				<h4>Ek Toh Kum Zindagani </h4>
+				<p>Ek Toh Kum Zindagani - 2018</p>
+			</div>
+			<div class="col-md-3">
+				<a href="#" class="album-poster" data-switch="6">
+					<img src="https://i.scdn.co/image/ab67616d0000b2736539071e0f1833190a491d4d" alt="">
+				</a>
+				<h4>Tum Hi Aana </h4>
+				<p>Tum Hi Aana  - 2018</p>
+			</div>
+			<div class="col-md-3">
+				<a href="#" class="album-poster" data-switch="7">
+					<img src="https://pagalnew.com/coverimages/Kusu-Kusu-Satyameva-Jayate-2-500-500.jpg" alt="">
+				</a>
+				<h4>Kusu Kusu </h4>
+				<p>Kusu Kusu Satyameva Jayate 2-2019</p>
+			</div>
+			<div class="col-md-3">
+				<a href="#" class="album-poster" data-switch="8">
+					<img src="https://upload.wikimedia.org/wikipedia/en/5/5b/Param_Sundari_Cover.jpeg" alt="">
+				</a>
+				<h4>Param Sundari Mimi</h4>
+				<p>Param Sundari Mimi-2019</p>
+			</div>
+			<div class="col-md-3">
+				<a href="#" class="album-poster" data-switch="9">
+					<img src="https://1.bp.blogspot.com/-q5CKfzRzo-8/YFQRMn8KcwI/AAAAAAAAGH0/GDHW0gu4d5QanGzcAPTlB168IgrItNnSACLcBGAsYHQ/s250/timthumb%2B%252846%2529.jpg" alt="">
+				</a>
+				<h4>Sapne Re Secret Superstar</h4>
+				<p>Sapne Re Secret Superstar-2017</p>
+			</div>
+		</div>
+
+		
+
+		<div class="row">
+			<div class="col-md-12">
+				<h3>coming soon</h3>
+			</div>
+			<div class="col-md-2">
+				<a href="#" class="album-poster">
+					<img src="https://i.pinimg.com/originals/60/9a/80/609a8061a8ae93f2735f3e3e20190b90.jpg" alt="">
+				</a>
+				<h4>Humnava Mere</h4>
+			</div>
+			<div class="col-md-2">
+				<a href="#" class="album-poster">
+					<img src="https://menafn.com/updates/pr/2022-02/10/I_c5153image_story.jpg" alt="">
+				</a>
+				<h4>Dhokha </h4>
+			</div>
+			<div class="col-md-2">
+				<a href="#" class="album-poster">
+					<img src="https://a10.gaanacdn.com/gn_img/song/4Z9bqo3yQn/9bqan4NJby/size_l_1657261669.jpg" alt="">
+				</a>
+				<h4>Galliyan Returns</h4>
+			</div>
+			
+			<div class="col-md-2">
+				<a href="#" class="album-poster">
+					<img src="https://i.scdn.co/image/ab67616d0000b273719c602ac25334838c6bdd03" alt="">
+				</a>
+				<h4>Kitni Haseen Hogi</h4>
+			</div>
+			<div class="col-md-2">
+				<a href="#" class="album-poster">
+					<img src="https://a10.gaanacdn.com/gn_img/albums/9En3peWXDV/n3pq1RlPWX/size_l.jpg" alt="">
+				</a>
+				<h4>Chandra</h4>
+			</div>
+			<div class="col-md-2">
+				<a href="#" class="album-poster">
+					<img src="https://i.scdn.co/image/ab67616d0000b273c8ae023242d4ef6ade67886c" alt="">
+				</a>
+				<h4>Sai Tujha Lekaru</h4>
+			</div>
+		</div>
+
+
+	</div>
+</div>
+
+	<div id="aplayer"></div>
+
+	<!-- Jquery Link -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<!-- Bootstrap Link -->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<!-- APlayer Jquery link -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>	
+
+	<script>
+
+
+		// NOW I CLICK album-poster TO GET CURRENT SONG ID
+		$(".album-poster").on('click', function(e){
+			var dataSwitchId = $(this).attr('data-switch');
+			//console.log(dataSwitchId);
+
+			// and now i use aplayer switch function see
+			ap.list.switch(dataSwitchId); //this is static id but i use dynamic 
+
+			// aplayer play function
+			// when i click any song to play
+			ap.play();
+
+			// click to slideUp player see
+			$("#aplayer").addClass('showPlayer');
+		});
+
+		const ap = new APlayer({
+		    container: document.getElementById('aplayer'),
+		    listFolded: true,
+		    audio: [
+		    {
+		        name: 'Chabidar Chabi',
+		        artist: 'Artist Name',
+		        url: 'Chabidar Chabi _ Girlz _ Praful-Swapnil _ Sagar Das _ Naren Kumar _ Vishal Devrukhkar _ Ram Kadam.mp3',
+		        cover: 'https://is3-ssl.mzstatic.com/image/thumb/Music123/v4/af/28/8a/af288acd-b7e6-2805-ff13-e60d8cc3a938/194491658588.jpg/600x600bf-60.jpg'  },
+			{
+		        name: 'Ami Je Tomar Bhool Bhulaiyaa 2',  // SONG NAME
+		        artist: 'Artist Name', //ARTIST NAME
+		        url: 'Ami Je Tomar Bhool Bhulaiyaa 2 128 Kbps.mp3', // PATH NAME AND SONG URL
+		        cover: 'Ami Je Tomar.jpg' // COVER IMAGE
+		    },
+			{
+				name: 'Chaka Chak Atrangi Re',
+				artist: 'Artist Name',
+				url: 'Chaka Chak Atrangi Re 128 Kbps.mp3',
+				cover: 'https://pianobajao.com/wp-content/uploads/2021/11/Chaka-Chak-Piano-Note-Atrangi-Re-1024x576.jpg',
+			},
+			{
+				name: 'Meri Jaan ',
+				artist: 'Artist Name',
+				url: 'Meri Jaan Gangubai Kathiawadi 128 Kbps.mp3', 
+				cover: 'https://i.ytimg.com/vi/RPFkaHG2ONA/maxresdefault.jpg',
+			},
+			{
+				name: 'Dil Ko Karaar Aaya Reprise Neha Kakkar',
+				artist: 'Artist Name',
+				url: 'Dil Ko Karaar Aaya Reprise Neha Kakkar 128 Kbps.mp3',
+				cover: 'https://djbaap.net/wp-content/media/covers/1422.jpg',
+			},
+			{
+				name: 'Ek Toh Kum Zindagani Marjaavaan',
+				artist: 'Artist Name',
+				url: 'Ek Toh Kum Zindagani Marjaavaan 128 Kbps.mp3',
+				cover: 'https://images.hungama.com/c/1/334/a5d/49511569/49511569_300x300.jpg',
+			},
+			{
+				name: 'Tum Hi Aana',
+				artist: 'Artist Name',
+				url: 'Tum Hi Aana Marjaavaan 128 Kbps.mp3',
+				cover: 'https://i.scdn.co/image/ab67616d0000b2736539071e0f1833190a491d4d',
+			},
+			{
+				name: 'Kusu Kusu Satyameva Jayate 2',
+				artist: 'Artist Name',
+				url: 'Kusu Kusu Satyameva Jayate 2 128 Kbps.mp3',
+				cover: 'https://pagalnew.com/coverimages/Kusu-Kusu-Satyameva-Jayate-2-500-500.jpg',
+			},
+			{
+				name: 'Param Sundari Mimi',
+				artist: 'Artist Name',
+				url: 'Param Sundari Mimi 128 Kbps.mp3',
+				cover: 'https://upload.wikimedia.org/wikipedia/en/5/5b/Param_Sundari_Cover.jpeg',
+			},
+			{
+				name: 'Sapne Re Secret Superstar',
+				artist: 'Artist Name',
+				url: 'Sapne Re Secret Superstar 128 Kbps.mp3',
+				cover: 'https://1.bp.blogspot.com/-q5CKfzRzo-8/YFQRMn8KcwI/AAAAAAAAGH0/GDHW0gu4d5QanGzcAPTlB168IgrItNnSACLcBGAsYHQ/s250/timthumb%2B%252846%2529.jpg',
+			},
+		    ]
+		});
+	</script>
+
+	</body>
+</html>
